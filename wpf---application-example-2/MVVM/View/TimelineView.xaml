@@ -4,13 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:viewModel ="clr-namespace:WPF___Application_Example_2.MVVM.ViewModel"
+             xmlns:core="clr-namespace:WPF___Application_Example_2.Core"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="700"
              Background="Transparent">
-    
+
     <UserControl.DataContext>
         <viewModel:TimelineViewModel/>
     </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <core:EnumToBrushConverter x:Key="EnumToBrushConverter"/>
+    </UserControl.Resources>
+    
     
     <Grid>
         <Grid.RowDefinitions>
@@ -28,7 +34,8 @@
         <Grid Grid.Row="0"
               Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="0.8*"/>
+                <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
@@ -48,7 +55,8 @@
                         Width="100"
                         FontSize="20"
                         Margin="10,10,10,10"
-                        Style="{StaticResource RegularButtonTheme}">
+                        Style="{StaticResource RegularButtonTheme}"
+                        Command="{Binding ButtonPlayCommand}">
                     Play
                 </Button>
 
@@ -68,6 +76,19 @@
                     Stop
                 </Button>
             </StackPanel>
+            <StackPanel Orientation="Vertical"
+                        Grid.Row="2"
+                        HorizontalAlignment="Center">
+
+                <Label Content ="Indicator"
+                       FontSize="14"
+                       Foreground="White"/>
+                <Ellipse Style="{StaticResource EllipseTheme}"
+                         Fill="{Binding IndicatorState, Converter={StaticResource EnumToBrushConverter}}"/>
+
+
+            </StackPanel>
+
         </Grid>
 
 
