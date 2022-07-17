@@ -16,6 +16,9 @@ namespace WPF___Application_Example_2.MVVM.ViewModel
         public RelayCommand FPChecked_Command { get; set; }
 
         public RelayCommand ButtonPlayCommand { get; set; }
+        public RelayCommand ButtonPauseCommand { get; set; }
+        public RelayCommand ButtonStopCommand { get; set; }
+
 
 
 
@@ -88,7 +91,14 @@ namespace WPF___Application_Example_2.MVVM.ViewModel
             {
                 IndicatorState = StateEnum.On;
             });
-
+            ButtonPauseCommand = new RelayCommand(o =>
+            {
+                IndicatorState = StateEnum.Loading;
+            });
+            ButtonStopCommand = new RelayCommand(o =>
+            {
+                IndicatorState = StateEnum.Off;
+            });
 
 
         }

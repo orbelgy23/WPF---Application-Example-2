@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
+using System.Windows.Media;
 
 namespace WPF___Application_Example_2.Core
 {
@@ -25,15 +25,15 @@ namespace WPF___Application_Example_2.Core
             switch ((StateEnum)value)
             {
                 case StateEnum.Idle:
-                    return Brushes.Gray;
+                    return new SolidColorBrush() { Color = Color.FromRgb(112, 112, 112) };
                 case StateEnum.Off:
-                    return Brushes.Red;
+                    return new SolidColorBrush() { Color = Color.FromRgb(255, 0, 0) };
                 case StateEnum.On:
-                    return Brushes.Lime;
+                    return new SolidColorBrush() { Color = Color.FromRgb(0, 255, 0) };
                 case StateEnum.Loading:
-                    return Brushes.Yellow;
+                    return new SolidColorBrush() { Color = Color.FromRgb(255, 255, 0) };
                 default:
-                    return Brushes.Gray;
+                    return new SolidColorBrush() { Color = Color.FromRgb(112, 112, 112) };
             }
         }
 

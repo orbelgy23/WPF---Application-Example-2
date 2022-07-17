@@ -17,6 +17,6 @@ namespace WPF___Application_Example_2.Core
         public static EntityTrack ComboBoxEntitiesSelectedItemState { get; set; } = MainViewModel.NullEntity;
         public static string TextBoxSelectDirState { get; set; } = "Load Dir";
 
-        public static StateEnum IndicatorState { get; set; } = StateEnum.Off;
+        public static StateEnum IndicatorState { get; set; } = StateEnum.Idle;
     }
 }
